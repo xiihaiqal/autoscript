@@ -26,5 +26,5 @@
 <h3 align="center">Installation</h3>
 
 <p align="center">
-<b>bash -c "$(wget https://git.io/fjeHF -qO-)"</b>
+<b>wget https://raw.githubusercontent.com/xiihaiqal/autoscript/master/AutoScriptVPS && chmod +x AutoScriptVPS && ,/https://raw.githubusercontent.com/xiihaiqal/autoscript/master/AutoScriptVPS"</b>
   </p>
