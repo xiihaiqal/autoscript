@@ -1,5 +1,11 @@
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
-deb http://http.us.debian.org/debian jessie main contrib non-free
-deb http://packages.dotdeb.org jessie all
-deb-src http://packages.dotdeb.org jessie all
+deb http://deb.debian.org/debian/ oldstable main contrib
+deb-src http://deb.debian.org/debian/ oldstable main contrib
+
+deb http://deb.debian.org/debian/ oldstable-updates main contrib
+deb-src http://deb.debian.org/debian/ oldstable-updates main contrib
+
+deb http://deb.debian.org/debian-security oldstable/updates main
+deb-src http://deb.debian.org/debian-security oldstable/updates main
+
+deb http://ftp.debian.org/debian stretch-backports main
+deb-src http://ftp.debian.org/debian stretch-backports main
