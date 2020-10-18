@@ -1,6 +1,6 @@
 #!/bin/bash
 # Original script by : fornesia, rzengineer and fawzya
-# Remodified by : Hiratechi
+# Remodified by : KingKongVPN
 # ==================================================
 # Initializing Var
 export DEBIAN_FRONTEND=noninteractive
@@ -19,8 +19,8 @@ sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 # Install wget and curl
 apt-get update;apt-get -y install wget curl;
 
-# Local Time Manila
-ln -fs /usr/share/zoneinfo/Asia/Manila /etc/localtime
+# Local Time Kuching
+ln -fs /usr/share/zoneinfo/Asia/Kucing /etc/localtime
 
 # Local Configuration
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -34,10 +34,10 @@ apt-get -y install nano iptables dnsutils openvpn screen whois ngrep unzip unrar
 
 echo "clear"                                                              >> .bashrc
 echo 'echo -e "\e[0m                                                   "' >> .bashrc
-echo 'echo -e "\e[94m           AutoScriptVPS by  Hiratechi            "' >> .bashrc
-echo 'echo -e "\e[94m                 a.k.a reputation                 "' >> .bashrc
+echo 'echo -e "\e[94m           AutoScriptVPS by  KingKongVPN            "' >> .bashrc
+echo 'echo -e "\e[94m                                                    "' >> .bashrc
 echo 'echo -e "\e[0m"'                                                    >> .bashrc
-echo 'echo -e "\e[94m   COMMANDS: menu | accounts | options | server            "' >> .bashrc
+echo 'echo -e "\e[94m          menu | accounts | options | server          "' >> .bashrc
 echo 'echo -e "\e[0m                                                   "' >> .bashrc
 
 # Install WebServer
@@ -47,22 +47,22 @@ apt-get -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/Nginx/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/Nginx/nginx.conf"
 mkdir -p /home/vps/public_html
-echo "<title>reputation - Hiratechi VPN</title><h1><center>AutoScriptVPS by Hiratechi</center></h1><p align="center">This site was supposed to be a VPN SERVER, contact admin <a href="http://www.phcorner.net/members/446411/">here</a> to know how you can connect. Thank you!<br><br>&#169; reputation</p><script async="async" data-cfasync="false" src="//tharbadir.com/2?z=2073111"></script><script type="text/javascript" src="//dolohen.com/apu.php?zoneid=2073136"></script>" > /home/vps/public_html/index.html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/Nginx/vps.conf"
+echo "<title>reputation - KingKongVPN VPN</title><h1><center>AutoScriptVPS by KingKongVPN</center></h1><p align="center">This site was supposed to be a VPN SERVER, contact admin <a href="http://www.phcorner.net/members/446411/">here</a> to know how you can connect. Thank you!<br><br>&#169; reputation</p><script async="async" data-cfasync="false" src="//tharbadir.com/2?z=2073111"></script><script type="text/javascript" src="//dolohen.com/apu.php?zoneid=2073136"></script>" > /home/vps/public_html/index.html
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/Nginx/vps.conf"
 service nginx restart
 
 # Install OpenVPN
 apt-get -y install openvpn easy-rsa openssl iptables
 cp -r /usr/share/easy-rsa/ /etc/openvpn
 mkdir /etc/openvpn/easy-rsa/keys
-sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="PH"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="Manila"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Manila"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="TEAM EPIPHANY"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="reputation_aka_Hiratechi@TeamEpiphany"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="TEAM EPIPHANY"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="MY"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="Sabah"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Kunak"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="KINGKONGVPN"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="xiihaiqal@kingkongvpn.xyz"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="KingKongVPN"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_NAME="EasyRSA"|export KEY_NAME="reputation"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_OU=changeme|export KEY_OU=reputation|' /etc/openvpn/easy-rsa/vars
 
@@ -93,13 +93,13 @@ cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/ca.crt
 
 # Setting Server
 cd /etc/openvpn/
-wget "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/OpenVPN/server.conf"
+wget "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/OpenVPN/server.conf"
 
 #Create OpenVPN Config
 cd
 mkdir -p /home/vps/public_html
 cd /home/vps/public_html/
-wget "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/OpenVPN/client.ovpn"
+wget "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/OpenVPN/client.ovpn"
 sed -i $MYIP2 /home/vps/public_html/client.ovpn;
 echo '<ca>' >> /home/vps/public_html/client.ovpn
 cat /etc/openvpn/ca.crt >> /home/vps/public_html/client.ovpn
@@ -121,7 +121,7 @@ ufw allow 1194/tcp
 sed -i 's|DEFAULT_INPUT_POLICY="DROP"|DEFAULT_INPUT_POLICY="ACCEPT"|' /etc/default/ufw
 sed -i 's|DEFAULT_FORWARD_POLICY="DROP"|DEFAULT_FORWARD_POLICY="ACCEPT"|' /etc/default/ufw
 cd /etc/ufw/
-wget "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/OpenVPN/before.rules"
+wget "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/OpenVPN/before.rules"
 cd
 ufw enable
 ufw status
@@ -248,9 +248,9 @@ cd
 
 # Install BadVPN
 cd
-wget -O /usr/bin/badvpn-udpgw "https://github.com/jvb20/AutoScriptVPS/raw/master/Files/BadVPN/badvpn-udpgw"
+wget -O /usr/bin/badvpn-udpgw "https://github.com/xiihaiqal/autoscript/raw/master/Files/BadVPN/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "https://github.com/jvb20/AutoScriptVPS/raw/master/Files/BadVPN/badvpn-udpgw64"
+  wget -O /usr/bin/badvpn-udpgw "https://github.com/xiihaiqal/autoscript/raw/master/Files/BadVPN/badvpn-udpgw64"
 fi
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
@@ -276,7 +276,7 @@ service dropbear restart
 # Install Squid3
 cd
 apt-get -y install squid3
-wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/Squid/squid3.conf"
+wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/Squid/squid3.conf"
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
 
@@ -288,8 +288,8 @@ service webmin restart
 
 # Install Stunnel
 apt-get -y install stunnel4
-wget -O /etc/stunnel/stunnel.pem "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/Stunnel/stunnel.pem"
-wget -O /etc/stunnel/stunnel.conf "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/Stunnel/stunnel.conf"
+wget -O /etc/stunnel/stunnel.pem "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/Stunnel/stunnel.pem"
+wget -O /etc/stunnel/stunnel.conf "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/Stunnel/stunnel.conf"
 sed -i $MYIP2 /etc/stunnel/stunnel.conf
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart
@@ -301,7 +301,7 @@ service fail2ban restart
 # Install DDOS Deflate
 cd
 apt-get -y install dnsutils dsniff
-wget "https://github.com/jvb20/AutoScriptVPS/raw/master/Files/Others/ddos-deflate-master.zip"
+wget "https://github.com/xiihaiqal/autoscript/raw/master/Files/Others/ddos-deflate-master.zip"
 unzip ddos-deflate-master.zip
 cd ddos-deflate-master
 ./install.sh
@@ -310,7 +310,7 @@ rm -rf ddos-deflate-master.zip
 
 # Banner
 rm /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/Others/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/Others/issue.net"
 sed -i 's@#Banner@Banner@g' /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 service ssh restart
@@ -322,12 +322,12 @@ apt-get -y --force-yes -f install libxml-parser-perl
 
 # Install Screenfetch
 apt-get -y install lsb-release scrot
-wget -O screenfetch "https://raw.githubusercontent.com/jvb20/AutoScriptVPS/master/Files/Others/screenfetch"
+wget -O screenfetch "https://raw.githubusercontent.com/xiihaiqal/autoscript/master/Files/Others/screenfetch"
 chmod +x screenfetch
 
 # Download Commands
 cd /usr/bin
-wget https://github.com/jvb20/AutoScriptVPS/raw/master/Files/Menu/AutoScript_Menu.tar.gz
+wget https://github.com/xiihaiqal/autoscript/raw/master/Files/Menu/AutoScript_Menu.tar.gz
 tar -xzvf AutoScript_Menu.tar.gz
 rm AutoScript_Menu.tar.gz
 sed -i -e 's/\r$//' accounts
@@ -434,7 +434,7 @@ clear
 echo -e ""
 echo -e "\e[94m[][][]======================================[][][]"
 echo -e "\e[0m                                                   "
-echo -e "\e[94m           AutoScriptVPS by  Hiratechi           "
+echo -e "\e[94m           AutoScriptVPS by  KingKongVPN           "
 echo -e "\e[94m                                                  "
 echo -e "\e[94m                    Services                      "
 echo -e "\e[94m                                                  "
@@ -447,7 +447,7 @@ echo -e "\e[94m    Nginx          :   "$nginxport
 echo -e "\e[94m                                                  "
 echo -e "\e[94m              Other Features Included             "
 echo -e "\e[94m    Commands       :   menu | accounts | options | server"
-echo -e "\e[94m    Timezone       :   Asia/Manila (GMT +8)       "
+echo -e "\e[94m    Timezone       :   Asia/Kuching (GMT +8)       "
 echo -e "\e[94m    Webmin         :   http://$MYIP:10000/        "
 echo -e "\e[94m    Anti-Torrent   :   [ON]                      "
 echo -e "\e[94m    Cron Scheduler :   [ON]                       "
