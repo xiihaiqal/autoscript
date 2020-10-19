@@ -19,8 +19,8 @@ sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 # Install wget and curl
 apt-get update;apt-get -y install wget curl;
 
-# Local Time Kuching
-ln -fs /usr/share/zoneinfo/Asia/Kucing /etc/localtime
+# Local Time Manila
+ln -fs /usr/share/zoneinfo/Asia/Kuching /etc/localtime
 
 # Local Configuration
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -35,9 +35,9 @@ apt-get -y install nano iptables dnsutils openvpn screen whois ngrep unzip unrar
 echo "clear"                                                              >> .bashrc
 echo 'echo -e "\e[0m                                                   "' >> .bashrc
 echo 'echo -e "\e[94m           AutoScriptVPS by  KingKongVPN            "' >> .bashrc
-echo 'echo -e "\e[94m                                                    "' >> .bashrc
+echo 'echo -e "\e[94m                 a.k.a reputation                 "' >> .bashrc
 echo 'echo -e "\e[0m"'                                                    >> .bashrc
-echo 'echo -e "\e[94m          menu | accounts | options | server          "' >> .bashrc
+echo 'echo -e "\e[94m   COMMANDS: menu | accounts | options | server            "' >> .bashrc
 echo 'echo -e "\e[0m                                                   "' >> .bashrc
 
 # Install WebServer
@@ -57,12 +57,12 @@ service nginx restart
 apt-get -y install openvpn easy-rsa openssl iptables
 cp -r /usr/share/easy-rsa/ /etc/openvpn
 mkdir /etc/openvpn/easy-rsa/keys
-sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="MY"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="Sabah"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Kunak"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="KINGKONGVPN"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="xiihaiqal@kingkongvpn.xyz"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="KingKongVPN"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="PH"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="Manila"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Manila"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="TEAM EPIPHANY"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="reputation_aka_KingKongVPN@TeamEpiphany"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="TEAM EPIPHANY"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_NAME="EasyRSA"|export KEY_NAME="reputation"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_OU=changeme|export KEY_OU=reputation|' /etc/openvpn/easy-rsa/vars
 
