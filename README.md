@@ -26,5 +26,5 @@
 <h3 align="center">Installation</h3>
 
 <p align="center">
-<b>wget https://raw.githubusercontent.com/xiihaiqal/autoscript/master/AutoScriptVPS && chmod +x AutoScriptVPS && ./AutoScriptVPS "</b>
+<b>wget https://raw.githubusercontent.com/xiihaiqal/autoscript/master/AutoScriptVPS && chmod +x AutoScriptVPS && ./AutoScriptVPS </b>
   </p>
